@@ -1,0 +1,52 @@
+{% extends "app_administrativo/base_administrativo.html" %}
+{% block title %}Cadastro de Associados{% endblock %}
+{% block links_externos_js_css %}
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$("#id_cpf").mask("999.999.999-99");
+	});
+</script>
+{% endblock %}
+{% load easy_mask %}
+{% block conteudo %}
+    <div class ="col-md-9">
+        <form action="" method="post">
+            {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+            {% csrf_token %}
+{#            <label for="id_nome_usuario">Nome </label> <input class="form-control" type="text" name="nome_usuario" required id="id_nome_usuario" maxlength="50" placeholder="Nome do usuário"/> <span class="helptext">Informe seu nome de usuario</span>#}
+{#            <label for="id_id_consultor">Id Consultor </label> <input class="form-control" value="{{ user }}" type="text" name="id_Consultor" id="id_id_consultor" maxlength="50" placeholder="Id Consultor"/> <span class="helptext">Id do Consulton</span>#}
+{#            <label for="id_email">Endereco de email</label> <input class="form-control" type="email" name="email" required id="id_email" maxlength="254" placeholder="Email do usuário"/>#}
+{#            <label for="id_cpf">Cpf</label> <input onkeydown="javascript: fMasc( this, mCPF );" class="form-control" type="text" name="cpf" autofocus required id="id_cpf" maxlength="50" placeholder="Informe o cpf"/> <span class="helptext">Informe seu Cpf</span>#}
+{#            <label for="id_password1">Senha</label> <input class="form-control" type="password" name="password1" required id="id_password1" placeholder="Informe a senha e ..."/> <span class="helptext"><ul><li>Sua senha não pode ser tão parecida com suas outras informações pessoais.</li><li>Sua senha precisa conter pelo menos 8 caracteres.</li><li>Sua senha não pode ser uma senha habitualmente utilizada.</li><li>Sua senha não pode ser inteiramente numérica.</li></ul></span>#}
+{#            <label for="id_password2">Confirmação de senha</label> <input class="form-control" type="password" name="password2" required id="id_password2" placeholder="... confirme a senha"/> <span class="helptext">Informe a mesma senha informada anteriormente, para verificação.</span>#}
+            {{ form.nome_usuario.label_tag }}
+            {{ form.nome_usuario }}
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.cpf.label_tag }}
+                <input onkeydown="javascript: fMasc( this, CPF );" class="form-control" type="text" name="cpf" autofocus required id="id_cpf" maxlength="14" placeholder="Informe o cpf"/>
+                {{ form.id_consultor.label_tag }}
+                {{ form.id_consultor }}
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <button class="btn btn-block btn-primary" type="submit"><i class="si si-login pull-right"></i> Enviar </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

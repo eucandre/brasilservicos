@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrativo {% block title %}{% endblock %}</title>
+</head>
+<body>
+{% block conteudo %}
+    {% for i in item %}
+        {{ i }}
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

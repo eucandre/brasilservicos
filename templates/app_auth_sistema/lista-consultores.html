@@ -1,0 +1,42 @@
+{% extends 'app_administrativo/base_administrativo.html' %}
+{% block title %}Lista de consultores{% endblock %}
+{% block conteudo %}
+    <div class="content">
+        <!-- Dynamic Table Full -->
+        <div class="block">
+            <div class="block-header">
+                <h3 class="block-title">Lista dos consultores <small>Completa</small></h3>
+            </div>
+            <div class="block-content">
+                <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/pages/base_tables_datatables.js -->
+                <table class="table table-bordered table-striped js-dataTable-full">
+                    <thead>
+                        <tr>
+                            <th class="text-center"></th>
+                            <th>Nome</th>
+                            <th class="hidden-xs">Email</th>
+                            <th class="hidden-xs" style="width: 15%;">cpf</th>
+                            <th class="text-center" style="width: 10%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in item %}
+                            <tr>
+                                <td class="text-center">{{ i.id }}</td>
+                                <td class="font-w600">{{ i.nome_usuario }}</td>
+                                <td class="hidden-xs">{{ i.email }}</td>
+                                <td class="hidden-xs">{{ i.cpf }}</td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Edit Client"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove Client"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

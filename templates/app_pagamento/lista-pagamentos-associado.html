@@ -1,0 +1,12 @@
+{% extends "app_administrativo/base_administrativo.html" %}
+{% block title %}Registra pagamentos{% endblock %}
+{% block links_externos_js_css %}
+{% endblock %}
+{% load easy_mask %}
+{% block conteudo %}
+    <h3>{{ associado.nome_usuario }}</h3>
+    <br>
+    {% for i in lista %}
+        {{ i.data_hora_pagamento }}<br>
+    {% endfor %}
+{% endblock %}

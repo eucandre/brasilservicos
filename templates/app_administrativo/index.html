@@ -1,0 +1,29 @@
+{% extends 'app_administrativo/base_administrativo.html' %}
+{% block title %}Página Inicial{% endblock %}
+{% block conteudo%}
+    <div class="container">
+        <div class="block block-themed block-transparent">
+
+                        <div class="block-content">
+                            <div class="row text-center">
+                                <div class="col-xs-6">
+                                    <a class="block block-rounded" href="/minha-rede/{{ user.id_myuser }}">
+                                        <div class="block-content text-white bg-default">
+                                            <i class="si si-speedometer fa-2x"></i>
+                                            <div class="font-w600 push-15-t push-15">Minha rede</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xs-6">
+                                    <a class="block block-rounded" href="/register/">
+                                        <div class="block-content text-white bg-modern">
+                                            <i class="si si-rocket fa-2x"></i>
+                                            <div class="font-w600 push-15-t push-15">Cadastro</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </div>
+{% endblock %}
